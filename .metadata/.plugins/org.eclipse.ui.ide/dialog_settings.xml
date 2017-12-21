@@ -11,4 +11,7 @@
 			<item value=""/>
 		</list>
 	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\workspace" key="OUTSIDE_LOCATION"/>
+	</section>
 </section>

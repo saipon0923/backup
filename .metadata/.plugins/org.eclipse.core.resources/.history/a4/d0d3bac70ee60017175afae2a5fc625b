@@ -1,0 +1,14 @@
+package capsule;
+
+public class Capsule {
+	public static void main(String[] args){
+		Person taro= new Person("山田太郎",20,"yamada@co.jp");
+		System.out.println(taro.getName());
+		System.out.println(taro.getAge());
+		System.out.println(taro.getAddress());
+
+
+
+	}
+
+}
