@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\3-4_SampleServlet" path="/3-4_SampleServlet" reloadable="true" source="org.eclipse.jst.jee.server:3-4_SampleServlet"/></Host>
+      <Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SampleServlet" path="/SampleServlet" reloadable="true" source="org.eclipse.jst.jee.server:SampleServlet"/><Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\lesson" path="/lesson" reloadable="true" source="org.eclipse.jst.jee.server:lesson"/></Host>
     </Engine>
   </Service>
 </Server>
