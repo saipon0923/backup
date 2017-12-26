@@ -1,3 +1,3 @@
 browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n</web-browsers>
 eclipse.preferences.version=1
-internalWebBrowserHistory=http\://localhost\:8080/lesson/ex1|*|http\://localhost\:8080/SampleServlet/|*|http\://localhost\:8080/3-4_SampleServlet/SampleServlet|*|http\://localhost\:8080/3-4_SampleServlet/|*|
+internalWebBrowserHistory=http\://localhost\:8080/Page203/HealthCheck|*|http\://localhost\:8080/SampleServlet/SampleServlet|*|http\://localhost\:8080/Page179/RedirectServlet|*|http\://localhost\:8080/SampleServlet/*|*|http\://localhost\:8080/Page174/FowardServlet|*|http\://localhost\:8080/SampleServlet/|*|http\://localhost\:8080/Page174/|*|http\://localhost\:8080/lesson/ex1|*|http\://localhost\:8080/3-4_SampleServlet/SampleServlet|*|http\://localhost\:8080/3-4_SampleServlet/|*|

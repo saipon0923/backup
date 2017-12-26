@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="リソース名 &apos;p174&apos; を &apos;Page174&apos; に変更します" description="リソース &apos;p174&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/p174" name="Page174" stamp="1514251925569" updateReferences="true"/>
+</session>
