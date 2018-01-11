@@ -1,0 +1,12 @@
+package com.internousdev.template.action;
+
+public class LoginAction extends ActionSupport implements SessionAware{
+
+	private String loginUserId;
+	private String loginpassword;
+	private String result;
+	public Map<String,Object> session;
+	private LoginDAO loginDAO=new LoginDAO();
+	private LoginDTO loginDTO = new LoginDTO();
+
+}

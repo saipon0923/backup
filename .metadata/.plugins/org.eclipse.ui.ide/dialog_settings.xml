@@ -12,6 +12,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup"/>
 			<item value="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\workspace\exsample"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
@@ -20,5 +21,7 @@
 	</section>
 	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
 		<item value="C:\Users\internousdev\Desktop\workspace\workspace-saiga\backup\workspace" key="OUTSIDE_LOCATION"/>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 </section>

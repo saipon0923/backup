@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring accessors="true" comment="Delete element from プロジェクト &apos;login2&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;login2&apos;&#x0D;&#x0A;- オリジナル要素: &apos;loginError&apos;" description="要素を削除" element1="WebContent/loginError" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1515552584109" subPackages="false" version="1.0"/>&#x0A;<refactoring comment="リソース名 &apos;login2/WebContent/lohinSuccess.jsp&apos; を &apos;loginSuccess.jsp&apos; に変更します" description="リソース &apos;lohinSuccess.jsp&apos; の名前変更" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/lohinSuccess.jsp" name="loginSuccess.jsp" stamp="1515560694157" updateReferences="true"/>
+</session>

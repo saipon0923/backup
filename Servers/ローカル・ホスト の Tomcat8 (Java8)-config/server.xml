@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="SampleServlet" path="/SampleServlet" reloadable="true" source="org.eclipse.jst.jee.server:SampleServlet"/><Context docBase="lesson" path="/lesson" reloadable="true" source="org.eclipse.jst.jee.server:lesson"/><Context docBase="Page174" path="/Page174" reloadable="true" source="org.eclipse.jst.jee.server:Page174"/><Context docBase="Page179" path="/Page179" reloadable="true" source="org.eclipse.jst.jee.server:Page179"/><Context docBase="Page203" path="/Page203" reloadable="true" source="org.eclipse.jst.jee.server:Page203"/></Host>
+      <Context docBase="SampleServlet" path="/SampleServlet" reloadable="true" source="org.eclipse.jst.jee.server:SampleServlet"/><Context docBase="lesson" path="/lesson" reloadable="true" source="org.eclipse.jst.jee.server:lesson"/><Context docBase="Page174" path="/Page174" reloadable="true" source="org.eclipse.jst.jee.server:Page174"/><Context docBase="Page179" path="/Page179" reloadable="true" source="org.eclipse.jst.jee.server:Page179"/><Context docBase="Page203" path="/Page203" reloadable="true" source="org.eclipse.jst.jee.server:Page203"/><Context docBase="login" path="/login" reloadable="true" source="org.eclipse.jst.jee.server:login"/><Context docBase="pre11" path="/template" reloadable="true" source="org.eclipse.jst.jee.server:pre11"/><Context docBase="template" path="/template" reloadable="true" source="org.eclipse.jst.jee.server:template"/></Host>
     </Engine>
   </Service>
 </Server>
