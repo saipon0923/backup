@@ -1,8 +1,12 @@
 package com.internousdev.template.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
+import com.internousdev.template.util.DBConnector;
 import com.mysql.jdbc.Connection;
+
+import freemarker.template.utility.DateUtil;
 
 public class UserCreateCompleteDAO {
 			private DBConnector dbconnector = new DBConnector();
@@ -15,8 +19,16 @@ public class UserCreateCompleteDAO {
 				try{
 						PreparedStatement preparedStatement=connection.prepareStatement(sql);
 						preparedStatement.setString(1, loginUserId);
-/*///////////////////////////////////*/
+						PreparedStatement.setString(2,loginUserPassword);
+						PreparedStatement.setString(3,userName);
+						PreparedStatement.setString(4,dateUtil.getDate());
+
+						PreparedStatement.execute();
+
+				}catch(Exception e){
+								e.printStackTrace();
+				}finally{
+								connection.close();
 				}
 			}
-
 }

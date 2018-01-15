@@ -1,0 +1,8 @@
+package com.internousdev.template.dao;
+
+public class BuyItemCompleteDAO {
+
+	private DBConnector dbConnector = new DBConnector);
+
+
+}
