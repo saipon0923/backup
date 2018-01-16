@@ -65,7 +65,7 @@
 				<div id="pr">
 				</div>
 		</div>
-		<div i="main">
+		<div id="main">
 				<div id="top">
 								<p>UserCreateComplete</p>
 				</div>
