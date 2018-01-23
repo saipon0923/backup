@@ -23,7 +23,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				return loginUserId;
 			}
 
-			public void SetLoginUserId(String loginUserId){
+			public void setLoginUserId(String loginUserId){
 				this.loginUserId=loginUserId;
 			}
 
@@ -49,7 +49,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 										result=SUCCESS;
 										BuyItemDTO buyItemDTO=buyItemDAO.getBuyItemInfo();
 
-										session.put("login_User_Id", loginDTO.getLoginId());
+										session.put("login_user_Id", loginDTO.getLoginId());
 										session.put("id",buyItemDTO.getId());
 										session.put("buyItem_name",buyItemDTO.getItemName());
 										session.put("buyItem_price",buyItemDTO.getItemPrice());
