@@ -11,70 +11,90 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware{
 
-	public Map<String,Object> session;
-	private MyPageDAO myPageDAO = new MyPageDAO();
-	private MyPageDTO myPageDTO = new MyPageDTO();
-	private String deleteFlg;
+	/**
+	 * ログイン情報を格納
+	 */
+	public Map<String, Object>  session;
+
+	/**
+	 * マイページ情報取得DAO
+	 */
+	public MyPageDAO myPageDAO = new MyPageDAO();
+
+	/**
+	 * マイページ情報格納DTO
+	 */
+	public MyPageDTO myPageDTO = new MyPageDTO();
+
+	/**
+	 * 削除フラグ
+	 */
+	public String deleteFlg;
+
+	/**
+	 * 処理結果
+	 */
 	private String result;
 
-	public String execute() throws SQLException{
+	/**
+	 * 商品履歴取得処理
+	 *
+	 * @author internous
+	 */
+	public String execute() throws SQLException {
 
-		//商品履歴を削除しない場合
-		if(deleteFlg==null){
+		// 商品履歴を削除しない場合
+		if(deleteFlg == null) {
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
-			myPageDTO=myPageDAO.getMyPageUserInfo(item_transaction_id,user_master_id);
 
-			session.put("buyItem_name", myPageDTO.getItemName());
-			session.put("total_price",myPageDTO.getTotalPrice());
-			session.put("total_count",myPageDTO.getTotalCount());
-			session.put("total_payment",myPageDTO.getPayment());
-			session.put("message","");
+			myPageDTO = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
 
+			session.put("total_price", myPageDTO.getTotalPrice());
+			session.put("total_count", myPageDTO.getTotalCount());
+			session.put("total_payment", myPageDTO.getPayment());
+			session.put("message", "");
 
-		}else if(deleteFlg.equals("1")){
-							delete();
+		// 商品履歴を削除する場合
+		} else if(deleteFlg.equals("1")) {
+			delete();
 		}
 
 		result = SUCCESS;
 		return result;
 	}
 
+	/**
+	 * 商品履歴削除
+	 *
+	 * @throws SQLException
+	 */
 	public void delete() throws SQLException {
 
-				String item_transaction_id = session.get("id").toString();
-				String user_master_id = session.get("login_user_id").toString();
+		String item_transaction_id = session.get("id").toString();
+		String user_master_id = session.get("login_user_id").toString();
 
-				int res = myPageDAO.buyItemHistoryDelete(item_transaction_id,user_master_id);
+		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id, user_master_id);
 
-				if(res>0){
-							session.put("message","商品情報を正しく削除しました。");
-				}else if(res==0){
-							session.put("message","商品情報の削除に失敗しました。");
-				}
+		if(res > 0) {
+			session.put("message", "商品情報を正しく削除しました。");
+		} else if(res == 0) {
+			session.put("message", "商品情報の削除に失敗しました。");
+		}
 	}
 
-	public void setDeleteFlg(String deleteFlg){
-					this.deleteFlg = deleteFlg;
+
+
+	public String getDeleteFlg() {
+		return deleteFlg;
+	}
+
+	public void setDeleteFlg(String deleteFlg) {
+		this.deleteFlg = deleteFlg;
 	}
 
 	@Override
-	public void setSession(Map<String,Object> loginSessionMap){
-					this.session=loginSessionMap;
+	public void setSession(Map<String, Object> loginSessionMap) {
+		this.session = loginSessionMap;
 	}
-
-	/*
-	public ArrayList<MyPageDTO> getMyPageList(){
-					return this.myPageList;
-	}
-	public String getMesage(){
-					return this.message;
-	}
-	public void setMessage(String message){
-					this.message = message;
-	}
-	*/
 }
-
-
-

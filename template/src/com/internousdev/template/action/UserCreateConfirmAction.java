@@ -1,69 +1,132 @@
 package com.internousdev.template.action;
+
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UserCreateConfirmAction extends ActionSupport implements SessionAware{
+/**
+ *
+ * @author internous
+ *
+ */
+public class UserCreateConfirmAction extends ActionSupport implements SessionAware {
 
 	private String loginUserId;
+
 	private String loginPassword;
+
 	private String userName;
+
+	/*ここから自分でいじったところ*/
+
+	private String userAddress;
+
+	private String userPhoneNumber;
+
+	private String userMailAddress;
+
+
+	/*自分でいじったところはここまで*/
+
 	public Map<String,Object> session;
-	private String errorMassage;
 
-	public String execute(){
+	private String result;
 
-			String result=SUCCESS;
+	private String errorMessage;
 
-			if(!(loginUserId.equals(""))
-				&&!(loginPassword.equals(""))
-				&&!(userName.equals(""))){
-						session.put("loginUserId", loginUserId);
-						session.put("loginPassword",loginPassword);
-						session.put("userName", userName);
-			}else{
-						setErrorMassage("未入力の項目があります。");
-						result = ERROR;
-			}
-			return result;
+	/**
+	 * 入力情報格納処理
+	 */
+	public String execute() {
+
+		result = SUCCESS;
+
+		if(!(loginUserId.equals("")) && !(loginPassword.equals("")) && !(userName.equals(""))
+				/*ここから下もいじってる*/
+				&& !(userAddress.equals(""))&& !(userPhoneNumber.equals(""))&& !(userMailAddress.equals(""))) {
+				/*いじりおわったところ*/
+			session.put("loginUserId", loginUserId);
+			session.put("loginPassword", loginPassword);
+			session.put("userName", userName);
+				/*いじりはじめ*/
+			session.put("userAddress", userAddress);
+			session.put("userPhoneNumber", userPhoneNumber);
+			session.put("userMailAddress", userMailAddress);
+				/*いじりおわり*/
+		} else {
+
+			setErrorMessage("未入力の項目があります。");
+			result = ERROR;
+		}
+
+		return result;
 	}
 
-	public String getLoginUserId(){
-			return loginUserId;
+	public String getLoginUserId() {
+		return loginUserId;
 	}
 
-	public void setLoginUserId(String loginUserId){
-			this.loginUserId=loginUserId;
+	public void setLoginUserId(String loginUserId) {
+		this.loginUserId = loginUserId;
 	}
 
-	public String getLoginPassword(){
-			return loginPassword;
+	public String getLoginPassword() {
+		return loginPassword;
 	}
 
-	public void setLoginPassword(String loginPassword){
-			this.loginPassword=loginPassword;
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
 	}
 
-	public String getUserName(){
-			return userName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserName(String userName){
-			this.userName=userName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
+
+	/*いじりはじめ*/
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
+	}
+
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
+	}
+
+	public String getUserMailAddress() {
+		return userMailAddress;
+	}
+
+	public void setUserMailAddress(String userMailAddress) {
+		this.userMailAddress = userMailAddress;
+	}
+
+	/*いじりおわり*/
+
 
 	@Override
-	public void setSession(Map<String,Object> session){
-			this.session=session;
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
-	public String getErrorMassage(){
-			return errorMassage;
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 
-	public void setErrorMassage(String errorMassage){
-			this.errorMassage=errorMassage;
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 }

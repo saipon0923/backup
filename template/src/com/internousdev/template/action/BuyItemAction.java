@@ -6,63 +6,73 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BuyItemAction extends ActionSupport implements SessionAware{
+public class BuyItemAction extends ActionSupport implements SessionAware {
 
-		private int stock;
-		private String pay;
-		public Map<String,Object> session;
-		private String result;
+	/**
+	 * アイテム購入個数
+	 */
+	private int stock;
 
-	 	public String execute (){
-			result = SUCCESS;
+	/**
+	 * 支払い方法
+	 */
+	private String pay;
 
-			session.put("stock",stock);
-			int intStock = Integer.parseInt(session.get("stock").toString());
-			int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
-			session.put("buyItem_price",intStock*intPrice);
+	/**
+	 * アイテム情報を格納
+	 */
+	public Map<String, Object>  session;
 
-			String payment;
+	/**
+	 * 処理結果
+	 */
+	private String result;
 
-			if(pay.equals("1")){
-						payment="現金払い";
-						session.put("pay",payment);
-			}else{
-						payment="クレジットカード";
-						session.put("pay",payment);
-			}
-			return result;
+	/**
+	 * 商品情報取得メソッド
+	 *
+	 * @author internous
+	 */
+	public String execute() {
+		result = SUCCESS;
+
+		session.put("stock", stock);
+		int intStock = Integer.parseInt(session.get("stock").toString());
+		int intPrice = Integer.parseInt(session.get("buyItem_price").toString());
+
+		session.put("buyItem_price", intStock * intPrice);
+		String payment;
+
+		if(pay.equals("1")) {
+
+			payment = "現金払い";
+			session.put("pay", payment);
+		} else {
+
+			payment = "クレジットカード";
+			session.put("pay", payment);
 		}
+		return result;
+	}
 
-		public int getStock(){
-						return stock;
-		}
+	public int getStock() {
+		return stock;
+	}
 
-		public void setStock(int stock){
-						this.stock=stock;
-		}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 
-		public String getPay(){
-						return pay;
-		}
+	public String getPay() {
+		return pay;
+	}
 
-		public void setPay(String pay){
-						this.pay=pay;
-		}
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
 
-		@Override
-		public void setSession(Map<String,Object> session){
-						this.session=session;
-		}
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

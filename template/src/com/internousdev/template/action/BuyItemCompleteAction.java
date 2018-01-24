@@ -8,17 +8,23 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemCompleteAction extends ActionSupport implements SessionAware{
 
-		public Map<String,Object> session;
-		private String result;
+	public Map<String,Object> session;
 
-		public String execute(){
+	private String result;
 
-					result=SUCCESS;
-					return result;
-		}
+	/**
+	 * 商品購入情報登録完了処理
+	 *
+	 * @author internous
+	 */
+	public String execute() {
 
-		@Override
-		public void setSession(Map<String,Object> session){
-					this.session=session;
-		}
+		result = SUCCESS;
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
 }
