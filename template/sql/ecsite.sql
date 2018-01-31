@@ -12,9 +12,12 @@ id int not null primary key auto_increment,
 login_id varchar(16) unique,
 login_pass varchar(16),
 user_name varchar(50),
+user_old varchar(50),
+user_sex varchar(50),
 user_address varchar(50),
 user_phonenumber varchar(50),
 user_mailaddress varchar(50),
+premium_member varchar(50),
 insert_date datetime,
 updated_date datetime
 );
@@ -44,5 +47,15 @@ delete_date datetime
 );
 
 
-INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("NoteBook", 100, 50,);
-INSERT INTO login_user_transaction(login_id, login_pass, user_name,user_address,user_phonenumber,user_mailaddress) VALUES("internous", "internous01", "test","東京都千代田区1-2-3-4","080-777-7777","test777@gmail.com");
+INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_old, user_sex, user_address, user_phonenumber, user_mailaddress, premium_member)
+						VALUES("user", "user01", "saipon","10","男","東京都千代田区1-2-3-4","080-777-7777","test777@gmail.com","0");
+INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_old, user_sex, user_address, user_phonenumber, user_mailaddress, premium_member)
+						VALUES("aaa", "bbb", "test","35","女","兵庫県中央区1-2-3-4","080-551-5555","test555@gmail.com","0");
+
+
+
+INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("ノート", 100, 50);
+INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("筆箱", 1000, 50);
+INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("栄養ドリンク", 200, 50);
+INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("観葉植物", 3000, 50);
+INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("ランニングシューズ", 5000, 50);

@@ -1,0 +1,41 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+
+import com.internousdev.template.util.DBConnector;
+
+
+public class PremiumMemberRegistrationDAO {
+
+	private DBConnector dbConnector = new DBConnector();
+
+	private Connection connection = dbConnector.getConnection();
+
+	////////////////////////////////////////////////////////////////////
+
+
+	public String getPremiumMemberInfo(){
+
+		String sql="SELECT ";
+
+
+
+		/*LoginActionの段階で、プレミアム会員かどうかのセッションを持っておけばいいのでは？*/
+
+
+
+		return ;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -98,7 +98,26 @@
 					</td>
 				</tr>
 
-<%--ここからは住所と電話番号とメールアドレスを追加してみる --%>
+<%--ここからは年齢と性別と住所と電話番号とメールアドレスを追加してみる --%>
+				<tr>
+					<td>
+						<label>年齢:</label>
+					</td>
+					<td>
+						<input type="text" name="userOld" value="" />
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label>性別:</label>
+					</td>
+					<td>
+						<input type="text" name="userSex" value="" />
+					</td>
+				</tr>
+
+
 				<tr>
 					<td>
 						<label>住所:</label>

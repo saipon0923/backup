@@ -1,0 +1,113 @@
+package com.internousdev.template.dto;
+
+public class LoginDTO {
+
+	private String loginId;
+
+	private String loginPassword;
+
+	private String userName;
+
+	//追加
+
+	private String userOld;
+
+	private String userSex;
+
+	private String userAddress;
+
+	private String userPhoneNumber;
+
+	private String userMailAddress;
+
+	private boolean premiumMember;
+
+	//追加終わり
+
+	private boolean loginFlg = false;
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+	public String getLoginPassword() {
+		return loginPassword;
+	}
+
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	//追加
+
+	public String getUserOld() {
+		return userOld;
+	}
+
+	public void setUserOld(String userOld) {
+		this.userOld = userOld;
+	}
+
+	public String getUserSex() {
+		return userSex;
+	}
+
+	public void setUserSex(String userSex) {
+		this.userSex = userSex;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
+	}
+
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
+	}
+
+	public String getUserMailAddress() {
+		return userMailAddress;
+	}
+
+	public void setUserMailAddress(String userMailAddress) {
+		this.userMailAddress = userMailAddress;
+	}
+
+	public Boolean getPremiumMember() {
+		return premiumMember;
+	}
+
+	public void setPremiumMember(boolean premiumMember) {
+		this.premiumMember = premiumMember;
+	}
+
+
+	//追加終わり
+
+	public boolean getLoginFlg() {
+		return loginFlg;
+	}
+
+	public void setLoginFlg(boolean loginFlg) {
+		this.loginFlg = loginFlg;
+	}
+}

@@ -102,6 +102,25 @@
 					</tr>
 
 <%-- 自分でいじったところ --%>
+
+					<tr id="box">
+						<td>
+							<label>年齢:</label>
+						</td>
+						<td>
+							<s:property value="userOld" escape="false" />
+						</td>
+					</tr>
+
+					<tr id="box">
+						<td>
+							<label>性別:</label>
+						</td>
+						<td>
+							<s:property value="userSex" escape="false" />
+						</td>
+					</tr>
+
 					<tr id="box">
 						<td>
 							<label>住所:</label>

@@ -1,0 +1,57 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.template.dto.LoginDTO;
+import com.internousdev.template.util.DBConnector;
+
+public class PremiumConfirmDAO implements SessionAware{
+
+	private DBConnector dbConnector = new DBConnector();
+
+	private Connection connection = dbConnector.getConnection();
+
+	private LoginDTO loginDTO = new LoginDTO();
+
+	public Map<String, Object> session;
+
+
+	public void changePremium (){
+
+		/*① データベースのある行を特定してそのカラムを書き換え
+		 *
+		 * どの行を更新するか決めるために、セッションから「login_id」と「login_pass」をひっぱりだして、MySQLでそれと同じ値を持ったIDを特定
+		 * 	「premium_number」を「1」に更新
+		 *　String sql="update login_user_transaction set premium_number='1' where セッションからひっぱってきたid AND pass"
+		 *
+		 *whereの部分をどう表現するか
+		 *
+		 * ②セッションの書き換え
+		 *
+		 * セッション 鍵名「loginUser」の値「loginDTOクラス boolean型 premiumMember」を「true」に更新
+		 *
+		 */
+
+		String id=((LoginDTO) session.get("loginUser")).getLoginId();
+		String password=((LoginDTO) session.get("loginUser")).getLoginPassword();
+
+
+
+
+		String sql="";
+
+	}
+
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+		this.session = session;
+	}
+
+
+
+}

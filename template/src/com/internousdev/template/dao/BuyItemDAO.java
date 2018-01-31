@@ -3,23 +3,64 @@ package com.internousdev.template.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.internousdev.template.dto.BuyItemDTO;
 import com.internousdev.template.util.DBConnector;
 
 public class BuyItemDAO {
 
+	//①データベースに接続するためのクラスをインスタンス化している
 	private DBConnector dbConnector = new DBConnector();
 
 	private Connection connection = dbConnector.getConnection();
 
-	private BuyItemDTO buyItemDTO = new BuyItemDTO();
-
+	private List<BuyItemDTO>list_item_all=new ArrayList<BuyItemDTO>();
+///////////////////////////////////////////////////////////////////////////////
 	/**
 	 * 商品情報取得メソッド
 	 *
-	 * @return BuyItemDTO
+	 * SQL テーブル「item_info_transaction」から全ての商品情報を、
+	 * List型「list_item_all」に格納します。各要素はテーブルの各行にそれぞれ対応しています。
 	 */
+
+	public List<BuyItemDTO> getBuyItemInfo() {
+
+		String sql = "SELECT id, item_name, item_price FROM item_info_transaction";
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while(resultSet.next()){
+				BuyItemDTO buyItemDTO = new BuyItemDTO();
+				buyItemDTO.setId(resultSet.getInt("id"));
+				buyItemDTO.setItemName(resultSet.getString("item_name"));
+				buyItemDTO.setItemPrice(resultSet.getString("item_price"));
+				list_item_all.add(buyItemDTO);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return list_item_all;
+	}
+
+//////////////////////////////////////////////////////////////////////
+/*
+	public List<BuyItemDTO> getListItemInfo(){
+		return list_item_all;
+	}
+
+	*/
+}
+
+
+		/*
+		②データベースから得た値を格納するためのクラスをインスタンス化している←今はいらない
+		private BuyItemDTO buyItemDTO = new BuyItemDTO();
+
 	public BuyItemDTO getBuyItemInfo() {
 
 		String sql = "SELECT id, item_name, item_price FROM item_info_transaction";
@@ -28,11 +69,17 @@ public class BuyItemDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
+
+
+			③boolean型のresultSet.next()が真だった場合に②で生成したインスタンスにSQLの値を代入
 			if(resultSet.next()) {
 				buyItemDTO.setId(resultSet.getInt("id"));
 				buyItemDTO.setItemName(resultSet.getString("item_name"));
 				buyItemDTO.setItemPrice(resultSet.getString("item_price"));
 			}
+
+
+
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -45,3 +92,5 @@ public class BuyItemDAO {
 		return buyItemDTO;
 	}
 }
+
+*/

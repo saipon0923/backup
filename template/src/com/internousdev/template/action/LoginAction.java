@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,8 +15,6 @@ import com.opensymphony.xwork2.ActionSupport;
  * ログイン認証処理
  * Login.jspからログインID、ログインパスワードを受け取り
  * DBへ問い合わせを行います。
- *
- * @author internous
  * @param loginUserId
  * @param loginPassword
  *
@@ -23,19 +22,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LoginAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ログインID
-	 */
 	private String loginUserId;
 
-	/**
-	 * ログインパスワード
-	 */
 	private String loginPassword;
 
-	/**
-	 * 処理結果を格納
-	 */
 	private String result;
 
 	/**
@@ -56,7 +46,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	/**
 	 * アイテム情報を取得
 	 */
-	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+	private BuyItemDAO DAO = new BuyItemDAO();
+	//private BuyItemDTO DTO = new BuyItemDTO();
+	private List<BuyItemDTO> allItem;
+	/**↑のallItemのゲッターとセッターはまだ作ってない
 
 	/**
 	 * 実行メソッド
@@ -69,23 +62,39 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 
 		session.put("loginUser", loginDTO);
+//↑ここではじめてセッションを作成している、だからこのクラスではゲッター不要
 
-		// ログイン情報を比較
+		/*ログイン情報を比較
+		 *
+		 */
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 
 			// アイテム情報を取得
-			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
+	//		List<BuyItemDTO>list_item_all=new ArrayList<>();
+
+			allItem=DAO.getBuyItemInfo();
+
 			session.put("login_user_id",	loginDTO.getLoginId());
-			session.put("id", buyItemDTO.getId());
-			session.put("buyItem_name", buyItemDTO.getItemName());
-			session.put("buyItem_price", buyItemDTO.getItemPrice());
+			//セッション　鍵「all_item」に値「各要素に各行の商品情報を格納したもの」を格納
+			session.put("all_item",allItem);
+			}
+
+		return result;
+	}
+
+			/*
+			session.put("id",DTO.getId());
+			session.put("buyItem_name", DTO .getItemName());
+			session.put("buyItem_price", DTO.getItemPrice());
+
 
 			return result;
 		}
-		
+
 		return result;
 	}
+*/
 
 	public String getLoginUserId() {
 		return loginUserId;
@@ -102,6 +111,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 	}
+
+	/*public Map<String, Object> getSession() {
+        return session;
+    }*/
 
 	@Override
 	public void setSession(Map<String, Object> session) {

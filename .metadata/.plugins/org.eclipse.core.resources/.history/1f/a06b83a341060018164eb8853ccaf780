@@ -1,0 +1,31 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+
+import com.internousdev.template.dto.LoginDTO;
+import com.internousdev.template.util.DBConnector;
+
+public class PremiumConfirmDAO {
+
+	private DBConnector dbConnector = new DBConnector();
+
+	private Connection connection = dbConnector.getConnection();
+
+	private LoginDTO loginDTO = new LoginDTO();
+
+
+	public void changePremium(){
+
+		/*① どの行を更新するか決めるために、セッションから「login_id」と「login_pass」をひっぱりだして、MySQLでそれと同じ値を持ったIDを特定
+		 * 	「premium_number」を「1」に更新
+		 * ②セッション 鍵名「loginUser」の値「loginDTOクラス boolean型 premiumMember」を「true」に更新
+		 *
+		 */
+
+		String sql="";
+
+	}
+
+
+
+}

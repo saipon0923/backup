@@ -21,6 +21,11 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	/*ここから自分でいじったところ*/
 
+	private String userOld;
+
+	private String userSex;
+
+
 	private String userAddress;
 
 	private String userPhoneNumber;
@@ -45,12 +50,15 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		if(!(loginUserId.equals("")) && !(loginPassword.equals("")) && !(userName.equals(""))
 				/*ここから下もいじってる*/
+				&& !(userOld.equals(""))&& !(userSex.equals(""))
 				&& !(userAddress.equals(""))&& !(userPhoneNumber.equals(""))&& !(userMailAddress.equals(""))) {
 				/*いじりおわったところ*/
 			session.put("loginUserId", loginUserId);
 			session.put("loginPassword", loginPassword);
 			session.put("userName", userName);
 				/*いじりはじめ*/
+			session.put("userOld", userOld);
+			session.put("userSex", userSex);
 			session.put("userAddress", userAddress);
 			session.put("userPhoneNumber", userPhoneNumber);
 			session.put("userMailAddress", userMailAddress);
@@ -89,6 +97,22 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 	/*いじりはじめ*/
+
+	public String getUserOld() {
+		return userOld;
+	}
+
+	public void setUserOld(String userOld) {
+		this.userOld = userOld;
+	}
+
+	public String getUserSex() {
+		return userSex;
+	}
+
+	public void serUserSex(String userSex) {
+		this.userSex = userSex;
+	}
 
 	public String getUserAddress() {
 		return userAddress;

@@ -1,0 +1,21 @@
+複数の商品データをbuyItem.jspで表示する
+
+
+
+login.jsp
+↓
+LoginAction → LoginDAO → データベース → LoginDAO　→ LoginDTO →LoginAction (executeメソッドの途中)
+↓
+executeメソッド →【 BuyItemDAO → データベース → BuyItemDAO　→ BuyItemDTO 】→LoginAction
+↓
+executeメソッドがSUCCESSを返す
+↓
+buyItem.jspに遷移
+
+
+・【】内が今回いじるところ
+
+テーブル「商品データ」の行の数だけBuyItemDTO型のインスタンス(buyItemDAO●●)を生成して、
+各行の値をそのインスタンスに格納して、セッションに保存する？
+
+

@@ -64,5 +64,16 @@
 			<result name="success">home.jsp</result>
 		</action>
 
+		<!--  MemberAction -->
+		<action name="MemberAction" class="com.internousdev.template.action.MemberAction" method="execute">
+			<result name="success">member.jsp</result>
+		</action>
+
+		<!--  PremiumMemberRegistrationAction -->
+		<action name="PremiumMemberRegistrationAction" class="com.internousdev.template.action.PremiumMemberRegistrationAction" method="execute">
+			<result name="success">premiumMemberRegistration.jsp</result>
+			<result name="error">member.jsp</result>
+		</action>
+
 	</package>
 </struts>

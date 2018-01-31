@@ -1,0 +1,19 @@
+package com.internousdev.template.action;
+
+public class PremiumMemberRegistrationAction {
+
+	/** このアクションでは、まずログインしているユーザーがプレミアム会員かどうか判別するために、
+	 * DAOからSQLにアクセスして、テーブル「login_user_transaction」のフィールド「premium_member」の値を取得する。
+	 *値がtrueなら、「●●(ユーザー名)はすでにプレミアム会員です。」というメッセージが書かれた画面を表示する、
+	 *falseなら「プレミアム会員登録するか？(Confirm画面)」の画面に遷移する。
+	 *
+	 */
+
+
+
+
+
+
+
+
+}

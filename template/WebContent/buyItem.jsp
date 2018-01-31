@@ -68,7 +68,28 @@
 			<p>BuyItem</p>
 		</div>
 		<div>
+
+		<%--会員情報画面に遷移させる --%>
+		<s:form action="MemberAction">
+			<s:submit value="会員情報"/>
+		</s:form>
+
+
+
+
+
+
+
+
+		<%--ここから下は商品を表示する画面　※まだ未完成 --%>
+
+<h4>↓↓↓未完成↓↓↓</h4>
+
 		<s:form action="BuyItemAction">
+
+
+		<%--
+
 			<table>
 				<tr>
 					<td>
@@ -86,6 +107,26 @@
 						<s:property value="session.buyItem_price" /><span>円</span>
 					</td>
 				</tr>
+
+		--%>
+
+
+		<table>
+			<s:iterator value="all_item">
+				<tr>
+					<td>
+						<h3><s:property value="itemName"/></h3>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<span>値段</span>
+					</td>
+					<td>
+						<s:property value="itemPrice"/><span>円</span>
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<span>在庫</span>
@@ -100,6 +141,34 @@
 						</select>
 					</td>
 				</tr>
+
+
+			</s:iterator>
+
+
+
+
+
+
+		<%--
+				<tr>
+					<td>
+						<span>在庫</span>
+					</td>
+					<td>
+						<select name="stock">
+							<option value="1" selected="selected">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</td>
+				</tr>
+
+
+
+				--%>
 				<tr>
 					<td>
 						<span>支払い方法</span>
@@ -116,15 +185,6 @@
 				</tr>
 			</table>
 		</s:form>
-
-		<%--会員情報ページに遷移するためのメソッドを書くスペース --%>
-
-
-
-
-
-
-		<%--あああああああああああああああああああああああああああああああ --%>
 
 			<div>
 				<span>前画面に戻る場合は</span><a href='<s:url action="HomeAction" />'>こちら</a>

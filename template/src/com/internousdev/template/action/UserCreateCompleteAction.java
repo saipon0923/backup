@@ -18,6 +18,10 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 	/*いじりはじめ*/
 
+	private String userOld;
+
+	private String userSex;
+
 	private String userAddress;
 
 	private String userPhoneNumber;
@@ -40,6 +44,8 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		userCreateCompleteDAO.createUser(session.get("loginUserId").toString(),
 				session.get("loginPassword").toString(),
 				session.get("userName").toString(),
+				session.get("userOld").toString(),
+				session.get("userSex").toString(),
 				session.get("userAddress").toString(),
 				session.get("userPhoneNumber").toString(),
 				session.get("userMailAddress").toString()
@@ -75,6 +81,21 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	}
 
 	/*追加部分*/
+	public String getUserOld() {
+		return userOld;
+	}
+
+	public void setUserOld(String userOld) {
+		this.userOld = userOld;
+	}
+
+	public String getUserSex() {
+		return userSex;
+	}
+
+	public void serUserSex(String userSex) {
+		this.userSex = userSex;
+	}
 
 	public String getUserAddress() {
 		return userAddress;
