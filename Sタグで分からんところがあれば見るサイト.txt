@@ -1,0 +1,11 @@
+http://si.comp.ae.keio.ac.jp/web_app_dev_material/app/framework/framework_list/index.html
+
+https://ameblo.jp/monstarlab-tech/entry-11108306390.html
+
+https://news.mynavi.jp/article/20071003-s_struts2/8
+
+
+
+Ｓタグイテレータ中にチェックボックスタグを入れた場合
+
+https://qiita.com/clomie/items/0be00e7563951aeec310
