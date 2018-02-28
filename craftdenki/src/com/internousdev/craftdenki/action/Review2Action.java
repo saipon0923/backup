@@ -20,7 +20,7 @@ public class Review2Action extends ActionSupport implements SessionAware {
 		String userId = session.get("trueID").toString();
 		String registDate = session.get("registDate").toString();
 
-		dao.getReviewInfo(userId,productId,registDate,review,evaluationCount);
+		dao.getReviewInfo(userId, productId, registDate, review, evaluationCount);
 
 		return SUCCESS;
 	}

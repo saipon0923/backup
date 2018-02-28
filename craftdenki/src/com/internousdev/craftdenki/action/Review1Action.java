@@ -14,10 +14,6 @@ public class Review1Action extends ActionSupport implements SessionAware {
 	private String productId;
 	private String registDate;
 
-	public String getProductName() {
-		return productName;
-	}
-
 	public String execute() {
 
 		session.put("productName", productName);
@@ -58,6 +54,10 @@ public class Review1Action extends ActionSupport implements SessionAware {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+
+	public String getProductName() {
+		return productName;
 	}
 
 }

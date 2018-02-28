@@ -3,7 +3,7 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<constant name="struts.devMode" value="true" />
+
 	<constant name="struts.ui.theme" value="simple" />
 
 	<package name="com.internousdevwork.craftdenki.action" extends="struts-default">
@@ -22,6 +22,7 @@
 			class="com.internousdev.craftdenki.action.ProductDetailsAction"
 			method="execute">
 			<result name="success">productDetails.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 		<!-- 土門 END -->
 
@@ -39,13 +40,13 @@
 
 		</action>
 
-		<!-- SupplyComfirmAction --><!-- 仕入確認 -->
-		<action name="SupplyConfirmAction"
-			class="com.internousdev.craftdenki.action.SupplyConfirmAction"
-			method="execute">
+		<!-- CheckSupplyAction --><!-- 仕入確認 -->
+		<action name="CheckSupplyAction"
+			class="com.internousdev.craftdenki.action.CheckSupplyAction" method="execute">
 
 			<result name="success">supplyConfirm.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+			<result name="checkErr">productManage.jsp</result> <!-- 入力エラーあり -->
 
 		</action>
 
@@ -54,8 +55,14 @@
 			class="com.internousdev.craftdenki.action.SupplyCompleteAction"
 			method="execute">
 
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token">supplyComplete.jsp</result>
 			<result name="success">supplyComplete.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+			<result name="checkErr">errorM.jsp</result> <!-- 入力エラーあり -->
 
 		</action>
 
@@ -65,6 +72,46 @@
 			method="execute">
 
 			<result name="success">productHideConfirm.jsp</result> <!-- 管理者判定成功 -->
+			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+
+		</action>
+
+		<!-- ProductHideCompleteAction --><!-- 商品非表示完了 -->
+		<action name="ProductHideCompleteAction"
+			class="com.internousdev.craftdenki.action.ProductHideCompleteAction"
+			method="execute">
+
+			<result name="success">productHideComplete.jsp</result> <!-- 管理者判定成功 -->
+			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+
+		</action>
+
+		<!-- ProductRestoreAction --><!-- 商品復元画面 -->
+		<action name="ProductRestoreAction"
+			class="com.internousdev.craftdenki.action.ProductRestoreAction"
+			method="execute">
+
+			<result name="success">productRestore.jsp</result> <!-- 管理者判定成功 -->
+			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+
+		</action>
+
+		<!-- ProductRestoreConfirmAction --><!-- 商品復元確認 -->
+		<action name="ProductRestoreConfirmAction"
+			class="com.internousdev.craftdenki.action.ProductRestoreConfirmAction"
+			method="execute">
+
+			<result name="success">productRestoreConfirm.jsp</result> <!-- 管理者判定成功 -->
+			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+
+		</action>
+
+		<!-- ProductRestoreCompleteAction --><!-- 商品復元完了 -->
+		<action name="ProductRestoreCompleteAction"
+			class="com.internousdev.craftdenki.action.ProductRestoreCompleteAction"
+			method="execute">
+
+			<result name="success">productRestoreComplete.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
 
 		</action>
@@ -86,7 +133,7 @@
 
 			<result name="success">productDataChangeConfirm.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
-			<result name="error1">productDataChange.jsp</result> <!-- 入力エラーあり -->
+			<result name="checkErr">productDataChange.jsp</result> <!-- 入力エラーあり -->
 
 		</action>
 
@@ -97,6 +144,7 @@
 
 			<result name="success">productDataChangeComplete.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+			<result name="checkErr">productDataChange.jsp</result> <!-- 入力エラーあり -->
 
 		</action>
 
@@ -107,7 +155,7 @@
 
 			<result name="success">productRegistConfirm.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
-			<result name="error1">productManage.jsp</result> <!-- 入力エラーあり -->
+			<result name="checkErr">productManage.jsp</result> <!-- 入力エラーあり -->
 
 		</action>
 
@@ -118,6 +166,7 @@
 
 			<result name="success">productRegistComplete.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
+			<result name="checkErr">productManage.jsp</result> <!-- 入力エラーあり -->
 
 		</action>
 
@@ -131,21 +180,11 @@
 
 		</action>
 
-		<!-- GoProductManageAction --><!-- 商品管理へ遷移 -->
-		<action name="GoProductManageAction"
-			class="com.internousdev.craftdenki.action.GoProductManageAction"
-			method="execute">
-
-			<result name="success">productManage.jsp</result> <!-- 管理者判定成功 -->
-			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
-
-		</action>
-
 		<!-- SalesManageAction --><!-- 売上管理へ遷移 -->
 		<action name="SalesManageAction"
 			class="com.internousdev.craftdenki.action.SalesManageAction" method="execute">
 
-			<result name="success">salesManageAction.jsp</result> <!-- 管理者判定成功 -->
+			<result name="success">salesManage.jsp</result> <!-- 管理者判定成功 -->
 			<result name="error">errorM.jsp</result> <!-- 管理者判定失敗 -->
 
 		</action>
@@ -174,7 +213,12 @@
 
 		<action name="Review2Action" class="com.internousdev.craftdenki.action.Review2Action"
 			method="execute">
-			<result name="success">productDetails.jsp</result>
+			<result name="success">reviewComplete.jsp</result>
+		</action>
+
+		<action name="Review3Action" class="com.internousdev.craftdenki.action.Review3Action"
+			method="execute">
+			<result name="success">productList.jsp</result>
 		</action>
 
 		<!-- ___________________管理者機能(高橋) _________END_________ -->
@@ -199,11 +243,7 @@
 			<result name="error">login.jsp</result>
 		</action>
 
-		<!-- GoCartAction -->
-		<action name="GoCartAction" class="com.internousdev.craftdenki.action.GoCartAction"
-			method="execute">
-			<result name="success">cart.jsp</result>
-		</action>
+
 
 
 
@@ -238,6 +278,7 @@
 			class="com.internousdev.craftdenki.action.SettlementAction" method="execute">
 			<result name="success">settlement.jsp</result>
 			<result name="login">login.jsp</result>
+			<result name="error">start.jsp</result>
 		</action>
 
 		<!-- SettlementConfirmAction -->
@@ -251,8 +292,37 @@
 		<action name="SettlementCompleteAction"
 			class="com.internousdev.craftdenki.action.SettlementCompleteAction"
 			method="execute">
+			<!-- token使って2重送信を阻止したい -->
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token">refresh.jsp</result>
 			<result name="success">settlementComplete.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
+
+
+
+
+
+
+		<!-- DestinationChangeAction 決済画面での住所変更 -->
+		<action name="DestinationChangeAction"
+			class="com.internousdev.craftdenki.action.DestinationChangeAction"
+			method="execute">
+			<result name="success">settlement0.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+
+		<!-- DestinationChange0Action -->
+		<action name="DestinationChange0Action"
+			class="com.internousdev.craftdenki.action.DestinationChange0Action"
+			method="execute">
+			<result name="success">destinationChange.jsp</result>
+		</action>
+
 
 
 		<!-- 決済機能 (終) -->
@@ -301,6 +371,8 @@
 			class="com.internousdev.craftdenki.action.UserInfoChangeCompleteAction"
 			method="execute">
 			<result name="success">userInfoChangeComplete.jsp</result>
+			<result name="error">error.jsp</result>
+
 		</action>
 
 		<!-- ___________________ユーザー情報変更機能(雑賀) _________END_________ -->
@@ -312,6 +384,7 @@
 		<action name="FavoriteAction"
 			class="com.internousdev.craftdenki.action.FavoriteAction" method="execute">
 			<result name="success">favorite.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 		<!-- ___________________パスワード再設定(影山) _________START_________ -->
@@ -342,7 +415,7 @@
 		<action name="ChangePasswordCompleteAction"
 			class="com.internousdev.craftdenki.action.ChangePasswordCompleteAction"
 			method="execute">
-			<result name="success">changePasswordComplete.jsp</result>
+			<result name="success">login.jsp</result>
 		</action>
 
 
@@ -352,14 +425,32 @@
 
 		<!-- ___________________カート機能(塩治) _________START_________ -->
 		<!-- CartAction -->
-		<action name="CartAction" class="com.internousdev.craftdenki.action.CartAction" method="execute">
+		<action name="CartAction" class="com.internousdev.craftdenki.action.CartAction"
+			method="execute">
+
 			<result name="success">cartConfirm.jsp</result>
-			<result name="input">cartConfirm.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 		<!-- LogoutAction -->
-		<action name="LogoutAction" class="com.internousdev.craftdenki.action.LogoutAction" method="execute">
+		<action name="LogoutAction" class="com.internousdev.craftdenki.action.LogoutAction"
+			method="execute">
 			<result name="success">logout.jsp</result>
+		</action>
+
+
+		<!-- CartInsertAction -->
+		<action name="CartInsertAction"
+				class="com.internousdev.craftdenki.action.CartInsertAction"
+				method="execute">
+			<!-- token使って2重送信を阻止したい -->
+			<!-- デフォルトinterceptor -->
+			<interceptor-ref name="defaultStack" />
+			<!-- tokenのinterceptor -->
+			<interceptor-ref name="token" />
+			<result name="invalid.token">refresh.jsp</result>
+				<result name="success">cartConfirm.jsp</result>
+				<result name="error">error.jsp</result>
 		</action>
 		<!-- ___________________カート機能(塩治) _________END_________ -->
 
@@ -385,6 +476,7 @@
 			class="com.internousdev.craftdenki.action.UserCreateCompleteAction"
 			method="execute">
 			<result name="success">userCreateComplete.jsp</result>
+			<result name="settlement">settlement0.jsp</result>
 		</action>
 		<!-- ___________________ユーザー登録機能(中島) _________END_________ -->
 

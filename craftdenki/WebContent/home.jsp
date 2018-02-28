@@ -1,82 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Style-Type" content="text/css" />
-	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<meta http-equiv="imagetoolbar" content="no" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta charset="utf-8">
-	<title>Home画面</title>
+<meta charset="UTF-8">
+<title>HOME画面</title>
+
+<!--  <link href="css/craftdenki.css" rel="stylesheet">-->
+<style>
+ul,li {
+	list-style: none;
+	margin:0;
+	padding:0;
+
+}
+
+#craft	{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding-top:200px;
+  transition: 1.0s ;
+  /*文字の装飾は省略*/
+  }
+#craft:hover{
+  filter: alpha(opacity=0);
+  -moz-opacity:0;
+  opacity:0;
+}
+</style>
+<script>
+
+</script>
+
 
 </head>
+
+
 <body>
+	<jsp:include page="home2.jsp" />
+	<div class="main2">
 
-<!-- とりあえずHome画面の雛形作っています好きなように変更してください -->
+	<% double number = Math.random();%>
 
+	</div>
+	<div id="main_slide">
+		<ul>
+			<li><img src="images/ayasiihon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/eigonohon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/kowaihon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/mukasibanasibon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/nekonohon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/ryouribon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/suugakunohon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/boroborobon.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/bestbook.png" alt="" width="300" height="240" /></li>
+		</ul>
+	</div>
+	<div id="main_slide2">
+		<ul>
+			<li><img src="images/sinpurunasuihannki.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/dennsirennzi.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/doraiya.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/ko-hi-me-ka-.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/terebi.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/haburasi.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/higesori.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/ketoru.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/mikisa.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/souziki.png" alt="" width="300" height="240" /></li>
+		</ul>
+	</div>
+		<div id="main_slide3">
+		<ul>
+			<li><img src="images/illustrain04-nuigurumi10.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/pingpong.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/illustrain04-wanage04.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/robot.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/mazyan.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/tezina.png" alt="" width="300" height="240" /></li>
+			<li><img src="images/igo.png" alt="" width="300" height="240" /></li>
+		</ul>
+	</div>
 
-	<s:form action ="GoLoginAction">
-
-		<s:submit value ="ログイン(login.jsp)"/>
-	</s:form>
-
-
-	<s:form action ="GoMyPageAction">
-		<s:submit value="マイページへ"/>
-	</s:form>
-
-
-
-	<s:form action="GoCartAction" >
-		<s:submit value="カート画面へ"/>
-	</s:form>
-
-
-
-	<s:form action="ProductListAction" >
-		<s:submit value="商品一覧へ(productList.jsp)"/>
-	</s:form>
-
-
-
-
-	<s:form action="GoHelpAction" >
-		<s:submit value="ヘルプ画面へ"/>
-	</s:form>
-
-	<s:form action ="LogoutAction">
-		<s:submit value ="ログアウト(logout.jsp)"/>
-	</s:form>
-
-
-
-
-
-
-
-	<s:form method="post" action="ItemSearchAction">
-		<select name="category">
-			<option value="0" selected="selected">すべてのカテゴリー</option>
-			<option value="1">本</option>
-			<option value="2">家電・パソコン</option>
-			<option value="3">おもちゃ・げーむ</option>
-		</select>
-		<s:textfield name="searchWord" maxlength="16"/>
-		<s:submit value="検索"/>
-	</s:form>
-
-
-
-	<s:form action ="SettlementAction">
-		<s:submit value ="決済画面へ(仮置き)"/>
-	</s:form>
-
-
-
-
+<img src="images/tanomu.svg?<%=number %>" width="900" height="500" id="craft" class="denki"/>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
